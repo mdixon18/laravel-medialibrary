@@ -1,6 +1,6 @@
 {
-  "name": "spatie/laravel-medialibrary",
-  "description": "Associate files with Eloquent models",
+  "name": "mdixon18/laravel-medialibrary",
+  "description": "Forked from Spatie - Associate files with Eloquent models",
   "keywords": [
     "spatie",
     "laravel-medialibrary",
@@ -11,7 +11,7 @@
     "cms",
     "laravel"
   ],
-  "homepage": "https://github.com/spatie/laravel-medialibrary",
+  "homepage": "https://github.com/mdixon18/laravel-medialibrary",
   "license": "MIT",
   "authors": [
     {

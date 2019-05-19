@@ -9,6 +9,9 @@
 This package can associate all sorts of files with Eloquent models. It provides a
 simple API to work with. To learn all about it, head over to [the extensive documentation](https://docs.spatie.be/laravel-medialibrary/).
 
+### Forked from spatie/media-library
+I needed the use of pull request #1443 until it is merged in (if it will be). All work on this has been done by Spatie and by @jlmmns for the PR.
+
 Here are a few short examples of what you can do:
 
 ```php
