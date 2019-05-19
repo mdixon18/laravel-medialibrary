@@ -128,8 +128,8 @@ class Filesystem
 
         $responsiveImagePaths = array_filter(
             $allFilePaths,
-            function (string $path) use ($conversionName) {
-                return str_contains($path, $conversionName);
+            function (string $path) use ($conversionName, $media) {
+                return str_contains($path, str_replace("." . $media->getExtensionAttribute(), '', $media->file_name) . "__{$conversionName}");
             }
         );
 
