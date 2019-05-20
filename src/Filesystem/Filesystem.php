@@ -108,10 +108,19 @@ class Filesystem
 
         $responsiveImagesDirectory = $this->getMediaDirectory($media, 'responsiveImages');
 
+        if ($responsiveImagesDirectory == '/') {
+            $this->removeResponsiveImages($media, 'medialibrary_original');
+        }
+        if ($mediaDirectory == '/') {
+            $this->removeFile($media, $media->file_name);
+        }
+
         collect([$mediaDirectory, $conversionsDirectory, $responsiveImagesDirectory])
 
             ->each(function ($directory) use ($media) {
-                $this->filesystem->disk($media->disk)->deleteDirectory($directory);
+                if ($directory != '/') {
+                    $this->filesystem->disk($media->disk)->deleteDirectory($directory);
+                }
             });
     }
 
@@ -129,7 +138,7 @@ class Filesystem
         $responsiveImagePaths = array_filter(
             $allFilePaths,
             function (string $path) use ($conversionName, $media) {
-                return str_contains($path, str_replace("." . $media->getExtensionAttribute(), '', $media->file_name) . "__{$conversionName}");
+                return str_contains($path, $conversionName) && str_contains($path, str_replace("." . $media->getExtensionAttribute(), '', $media->file_name));
             }
         );
 
